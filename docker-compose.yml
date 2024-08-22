@@ -1,0 +1,17 @@
+version: '3.3'
+services:
+  web:
+    container_name: questionset_web
+    build:
+      context: .
+      args:
+        DOCKER_BUILDKIT: 1
+      dockerfile: Dockerfile
+    ports:
+      - 8889:8084
+    networks:
+      - questionset
+
+networks:
+  questionset:
+    driver: bridge
